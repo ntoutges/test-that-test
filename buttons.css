@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "pixel";
+  src: url("pixelmix.ttf");
+}
+
+.buttons {
+  position: relative;
+  width: 17vw;
+  height: 12vh;
+  margin: 2px auto auto auto;
+
+  flex-grow: 1;
+  /* max-height: 20%; */
+}
+
+.button-bottoms {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border-radius: 10px;
+  
+  filter: brightness(50%)
+}
+
+.button-tops {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+    
+  display: flex;
+  align-items: center;
+  
+  border-radius: 10px;
+  user-select: none;
+  
+  transition-property: left, top;
+  transition-duration: 50ms;
+}
+
+.buttons:hover {
+  filter: brightness(130%) !important;
+}
+
+.buttons:hover .button-tops {
+  cursor: pointer;
+}
+
+.buttons.actives .button-tops {
+  top: 7px;
+  left: 7px;
+  cursor: pointer;
+  filter: brightness(115%);
+}
+
+.button-tops > div {
+  font-size: 100%;
+  
+  font-family: pixel, sans-serif;
+  width: 100%;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  word-break: break-word;
+}
+
+.buttons.radios > .button-tops > div {
+  padding: 10px;
+  border-top-style: double;
+  border-bottom-style: double;
+}
+
+.bottoms {
+  position: absolute !important;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+/*   width: 100%; */
+  text-align: center;
+/*   margin-bottom: 0px;
+  align-self: flex-end; */
+/*   text-align: center; */
+}

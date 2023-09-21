@@ -1,0 +1,22 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  background-color: cornsilk;
+  overflow: hidden;
+}
+
+body:not([data-selected="categories"]) > #categories {
+  display: none;
+}
+
+body:not([data-selected="quiz"]) > #quiz {
+  display: none;
+}
+
+.containers {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
