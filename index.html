@@ -6,10 +6,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="buttons.css">
     <link rel="stylesheet" href="categories.css">
+    <link rel="stylesheet" href="quiz.css">
     <script src="script.js" type="module" defer></script>
   </head>
-  <body data-selected="categories">
-    <div id="categories" class="containers"></div>
-    <div id="quiz" class="containers"></div>
+  <body data-selected="mode-select" data-copyright="show">
+    <div id="copyright-info">PiCO Transistors and Logic™©®</div>
+    <div id="mode-select" class="containers">
+      <div id="button-holder"></div>
+      <div id="button-desc"></div>
+      <div class="controls"></div>
+    </div>
+    <div id="categories" class="containers">
+      <div id="selectors"></div>
+      <div class="controls"></div>
+    </div>
+    <div id="quiz" class="containers">
+      <div id="back-holder"></div>
+      <div id="next-holder"></div>
+      <div id="main-question">
+        <div id="question-holder">test</div>
+        <div id="hint-holder">
+          <div id="hint-div">test2</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

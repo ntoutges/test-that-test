@@ -1,6 +1,6 @@
-#categories {
-  position: absolute;
-  top: 20px;
+#categories > #selectors {
+  position: relative;
+  /* top: 20px; */
   
   width: 100vw;
   height: calc(80vh - 15px);
@@ -8,6 +8,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  /* transition: top 500ms; */
 }
 
 .categories {
@@ -15,16 +17,21 @@
   padding: 0.5vw 1.6vw 1.6vw 1.6vw;
   display: flex;
   flex-direction: column;
-  width: 20%;
+  flex-grow: 1;
 
   padding-bottom: 80px;
+  margin-right: 10px;
   
-  transition-property: width;
+  transition-property: flex-grow;
   transition-duration: 200ms;
 }
 
+.categories:first-child {
+  margin-left: 10px;
+}
+
 .categories:hover {
-  width: 25%;
+  flex-grow: 1.5;
 }
 
 .category-headers {

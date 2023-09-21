@@ -15,8 +15,108 @@ body:not([data-selected="quiz"]) > #quiz {
   display: none;
 }
 
+body:not([data-selected="mode-select"]) > #mode-select {
+  display: none;
+}
+
 .containers {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 20px);
   overflow: hidden;
+  opacity: 1;
+
+  position: absolute;
+  top: 20px;
+  transition: top 500ms, height 500ms, opacity 200ms;
+}
+
+body.flash > .containers {
+  opacity: 0;
+}
+
+#copyright-info {
+  height: 20px;
+  text-align: center;
+  
+  font-size: 15px;
+  font-family: Verdana, sans-serif;
+  background-color: #dfdfdf;
+
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 500ms;
+}
+
+body:not([data-copyright]) > #copyright-info {
+  transform: translateY(-100%);
+}
+
+body:not([data-copyright]) > .containers {
+  top: 0px;
+  height: 100vh;
+}
+
+
+
+#categories {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
+  flex-grow: 1;
+  padding: 10px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.start-button {
+  font-size: 600%;
+}
+
+.back-button > .button-tops {
+  background: url(graphics/back-arrow.png) no-repeat center;
+  background-size: contain;
+  image-rendering: pixelated;
+  background-position: 50% 50%;
+}
+
+.mode-selects {
+  display: inline-block;
+}
+
+
+#mode-select {
+  display: flex;
+  flex-direction: column;
+}
+
+#button-holder {
+  padding: 10px;
+}
+
+#button-holder .mode-selects {
+  margin-left: 10px;
+}
+
+#button-holder > .mode-selects:first-child {
+  margin-left: 0px;
+}
+
+.mode-selects{
+  min-width: 20vh;
+}
+
+#button-desc {
+  height: calc(100% - 400px);
+  background-color: #e5e5e5;
+  border-top: black 4px solid;
+  border-bottom: black 4px solid;
+
+  padding: 10px;
+  font-size: 40px;
+  font-family: monospace;
+
+  text-align: center;
 }
