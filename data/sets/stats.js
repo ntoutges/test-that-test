@@ -701,36 +701,36 @@ questionArray[14][18] = "Is there a difference in average income levels for wine
 
 questionArray[14][19] = "300 randomly selected statistics students took part of an experiment where 100 of them studied alone, 100 studied with their peers, and the rest studied with a tutor.  Does the average score on the final exam depend on study type? ";
 
-const questionsKey = {
-  "Confidence Intervals-Population Mean": 0,
-  "Confidence Intervals-Population Proportion": 1,
-  "Confidence Intervals-Difference Between Means": 2,
-  "Confidence Intervals-Paired Data": 3,
-  "Confidence Intervals-Difference Between Proportions": 4,
-  "Hypothesis Tests-Population Mean": 6,
-  "Hypothesis Tests-Population Proportion": 7,
-  "Hypothesis Tests-Difference Between Means": 8,
-  "Hypothesis Tests-Paired Data": 9,
-  "Hypothesis Tests-Difference Between Proportions": 10,
-  "Chi^2 Tests-Goodness of Fit": 11,
-  "Chi^2 Tests-Independence": 12,
-  "Chi^2 Tests-Homogeneity": 13,
-  "Predictions-y = a + bx": 5
-};
+// const questionsKey = {
+//   "Confidence Intervals-Population Mean": 0,
+//   "Confidence Intervals-Population Proportion": 1,
+//   "Confidence Intervals-Difference Between Means": 2,
+//   "Confidence Intervals-Paired Data": 3,
+//   "Confidence Intervals-Difference Between Proportions": 4,
+//   "Hypothesis Tests-Population Mean": 6,
+//   "Hypothesis Tests-Population Proportion": 7,
+//   "Hypothesis Tests-Difference Between Means": 8,
+//   "Hypothesis Tests-Paired Data": 9,
+//   "Hypothesis Tests-Difference Between Proportions": 10,
+//   "Chi^2 Tests-Goodness of Fit": 11,
+//   "Chi^2 Tests-Independence": 12,
+//   "Chi^2 Tests-Homogeneity": 13,
+//   "Predictions-y = a + bx": 5
+// };
 
 export function getNewQuestion(types) {
-  const keys = Object.keys(types);
-  const randCategory = keys[Math.floor(Math.random() * keys.length)];
-  const categoryIndex = questionsKey[randCategory]
-  const questionIndex = Math.floor(Math.random() * questionArray[categoryIndex].length);
+  // const keys = Object.keys(types);
+  const randCategoryIndex = types[Math.floor(Math.random() * types.length)];
+  // const categoryIndex = questionsKey[randCategory]
+  const questionIndex = Math.floor(Math.random() * questionArray[randCategoryIndex].length);
   
-  return [questionArray[categoryIndex][questionIndex], randCategory];
+  return [questionArray[randCategoryIndex][questionIndex], 0, randCategoryIndex, {}];
 }
 
 // once again, ripped straight from http://www.ltcconline.net/greenL/java/statistics/catstatprob/categorizingstatproblemsjavascript.html
-export function hint(correctAnswer, test) {
-  const correct = questionsKey[correctAnswer];
-  const guess = questionsKey[test];
+export function hint(correct, guess) {
+  // const correct = questionsKey[correctAnswer];
+  // const guess = questionsKey[test];
   
   let messageText = "";
   if(correct < 6){ //Not a CI
@@ -758,7 +758,7 @@ export function hint(correctAnswer, test) {
 			messageText = "The variables are quantitative.  We do not have \"Yes\" or \"No\" questions.";
 		}
 		else if(correct == 2){
-			messageText = "The two populations are not dependent.  There is no pairing";
+			messageText = "The two populations are not dependent. There is no pairing.";
 		}
 		else if(correct == 3){
 			if(guess == 5){

@@ -1,8 +1,11 @@
-import { makePress, makeSwitch, setButtonBounds } from "./buttons.js";
+import { makePress, makeSwitch, onButtonDown, setButtonBounds } from "./buttons.js";
 
+// returns all categories used in buttons
 export function constructCategories(categories, container) {
   container.innerHTML = "";
 
+  let buttonId = 0;
+  const allButtons = [];
   for (let category in categories) {
     const color = categories[category][0];
     const categoryEl = document.createElement("div");
@@ -27,12 +30,14 @@ export function constructCategories(categories, container) {
     for (let i = 1; i < categories[category].length; i++) {
       const type = categories[category][i];
       const toggleButton = makeSwitch(type, color);
+      toggleButton.setAttribute("data-id", buttonId++);
       setButtonBounds(toggleButton, "90%", "unset");
       categoryEl.appendChild(toggleButton);
-      switches.push(toggleButton)
+      switches.push(toggleButton);
+      allButtons.push(toggleButton);
     }
     
-    all.addEventListener("mousedown", () => {
+    onButtonDown(all, () => {
       let event = "reset";
       for (let button of switches) {
         if (!button.classList.contains("actives")) {
@@ -46,4 +51,6 @@ export function constructCategories(categories, container) {
     all.classList.add("bottoms");
     categoryEl.appendChild(all);
   }
+  
+  return allButtons;
 }

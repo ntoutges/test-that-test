@@ -120,3 +120,7 @@ body:not([data-copyright]) > .containers {
 
   text-align: center;
 }
+
+#button-desc:empty::after {
+  content: 'Select a subject to practice...';
+}
